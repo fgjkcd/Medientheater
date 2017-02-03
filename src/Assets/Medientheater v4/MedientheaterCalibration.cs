@@ -19,7 +19,7 @@ public class MedientheaterCalibration : MonoBehaviour {
 
 	public GameObject[] projectionAreas;
 
-	private List<TextMesh> texts = new List<TextMesh>();
+	public List<TextMesh> texts = new List<TextMesh>();
 	private List<Material> materials = new List<Material>();
 	private List<Camera> cameras = new List<Camera>();
 

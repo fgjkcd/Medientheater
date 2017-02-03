@@ -16,6 +16,7 @@ public class MedientheaterCalibrationInput : MonoBehaviour {
 	public float vpScalingStep = .01f;
 	public float vpPositionStep = .01f;
 
+	private MedientheaterCalibration mtCal;
 	private CameraCalibration camCal;
 	private int mode = SCALE;
 	private int selection = LR;
@@ -23,8 +24,18 @@ public class MedientheaterCalibrationInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		camCal = GetComponentInParent<CameraCalibration>();
+		mtCal = GetComponent<MedientheaterCalibration>();
+		char mc = mode == SCALE ? 'S' : 'V';
+		mtCal.texts[selection].text = mc + mtCal.texts[selection].text;
 	}
-	
+
+	private void setSelection(int sel) {
+		mtCal.texts[selection].text = mtCal.texts[selection].text.Substring(1);
+		selection = sel;
+		char mc = mode == SCALE ? 'S' : 'V';
+		mtCal.texts[selection].text = mc + mtCal.texts[selection].text;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.S)) {
@@ -33,29 +44,30 @@ public class MedientheaterCalibrationInput : MonoBehaviour {
 		} else if (Input.GetKeyDown(KeyCode.V)) {
 			mode = VIEWPORT;
 			print("VIEWPORT mode");
+
 		} else if (Input.GetKeyDown(KeyCode.Alpha1)) {
-			selection = LR;
+			setSelection(LR);
 			print("LR cams / Cam 0 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha2)) {
-			selection = FB;
+			setSelection(FB);
 			print("FB cams / Cam 1 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha3)) {
-			selection = FLOOR;
+			setSelection(FLOOR);
 			print("FLOOR cams / Cam 2 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha4)) {
-			selection = 3;
+			setSelection(3);
 			print("Cam 3 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha5)) {
-			selection = 4;
+			setSelection(4);
 			print("Cam 4 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha6)) {
-			selection = 5;
+			setSelection(5);
 			print("Cam 5 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha7)) {
-			selection = 6;
+			setSelection(6);
 			print("Cam 6 selected");
 		} else if (Input.GetKeyDown(KeyCode.Alpha8)) {
-			selection = 7;
+			setSelection(7);
 			print("Cam 7 selected");
 		
 		} else if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) {

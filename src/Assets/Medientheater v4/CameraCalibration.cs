@@ -36,10 +36,10 @@ public class CameraCalibration : MonoBehaviour {
 	}
 
 	public void apply() {
+		positionCameras(allCameras, viewports);
 		scaleCameras(lrCameras, scaleFactors.wallsLR);
 		scaleCameras(fbCameras, scaleFactors.wallsFB);
 		scaleCameras(floorCameras, scaleFactors.floor);
-		positionCameras(allCameras, viewports);
 	}
 
 	private void scaleCameras(Camera[] cameras, Vector2 scaleFactors) {
