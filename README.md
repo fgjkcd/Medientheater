@@ -1,6 +1,17 @@
 # Medientheater
 The Unity basis setup for media theater projects.
 
+## Instructions vor v4
+
+Two more or less important notes:
+
+1. There are several new black walls in the far distance behind the walls of the room. They are used as a neutral camera background to remove the overlap of some of the projections. It's a workaround for the cameras only showing white planes on the left and right walls, when I set the clear flags to a black color.
+2. If you want to place 3D objects in the scene, be aware, that everything you place inside the room, will be visible on at least one wall projection *and* on the floor. If you want 3D objects to be visible on one projection only, you need to place them *behind* that wall/floor (and deactivate the mesh renderer of the wall/floor).
+
+
+## Instructions for v3
+Intermediate version; if you find this version anywhere, skip it immediately.
+
 ## Instructions for v2
 Here's the first update of the Unity setup. Just replace the old prefab with the new one. The assignment of the cameras in the scene to the projectors in the real world should now be correct.
 
